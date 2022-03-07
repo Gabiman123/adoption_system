@@ -17,23 +17,6 @@
 CREATE DATABASE IF NOT EXISTS `adoption_system` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `adoption_system`;
 
--- Volcando estructura para tabla adoption_system.adoptions
-CREATE TABLE IF NOT EXISTS `adoptions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `pet_id` int(11) NOT NULL,
-  `date` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `pet_id` (`pet_id`),
-  CONSTRAINT `FK_adoptions_pets` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_adoptions_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
-
--- Volcando datos para la tabla adoption_system.adoptions: ~1 rows (aproximadamente)
-/*!40000 ALTER TABLE `adoptions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `adoptions` ENABLE KEYS */;
-
 -- Volcando estructura para tabla adoption_system.pets
 CREATE TABLE IF NOT EXISTS `pets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -61,6 +44,23 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Volcando datos para la tabla adoption_system.users: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+-- Volcando estructura para tabla adoption_system.adoptions
+CREATE TABLE IF NOT EXISTS `adoptions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `pet_id` (`pet_id`),
+  CONSTRAINT `FK_adoptions_pets` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_adoptions_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+-- Volcando datos para la tabla adoption_system.adoptions: ~1 rows (aproximadamente)
+/*!40000 ALTER TABLE `adoptions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `adoptions` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
