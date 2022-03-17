@@ -17,7 +17,7 @@ app.use("/adoption", adoptionRoutes);
 
 app.listen(puerto, err => {
     if(err){
-        console.log(`Tenemos error ${err}`);
+        console.log(`Tenemos un error ${err}`);
     }
     else{
         console.log(`Todo bien en el puerto ${puerto}`);
